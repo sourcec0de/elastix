@@ -1,0 +1,35 @@
+{
+  "name": "elastix",
+  "version": "0.0.1",
+  "description": "A tool for ElasticSearch written in CoffeeScript and Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sourcec0de/elastics.git"
+  },
+  "keywords": [
+    "elasticsearch",
+    "elastic",
+    "search",
+    "distributed",
+    "search",
+    "bulk",
+    "indexing",
+    "cli",
+    "client",
+    "elasticsearch",
+    "client"
+  ],
+  "author": "James R. Qualls",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/sourcec0de/elastics/issues"
+  },
+  "dependencies": {
+    "request": "~2.27.0",
+    "mongodb": "~1.3.19"
+  }
+}
