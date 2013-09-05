@@ -10,6 +10,7 @@ msgs = require("../config/messages")
 defaults = require("../config/defaults")
 ejs = require("elastic.js")
 nc = require('elastic.js/elastic-node-client')
+log = console.log
 # ======================================
 class Elastix
 	constructor: (@url=defaults.es_url)->
@@ -22,12 +23,18 @@ class Elastix
 			@info.protocol
 		)
 		@client = @ejs.client
-		# elx = @ # Maintains a reference to global class
+	
+	# Get all methods and attrs attached to this class
 	details:   -> @
-	createIndex: (name,settings)->
-		check(name,msgs.missing_index_name).notNull()
-		throw new Error(msgs.not_json_object) if(settings and !(settings instanceof Object))
-	removeIndex: ()->
+	
+	index: (name,settings=defaults.index_settings)->
+		settings = JSON.stringify(settings) if settings?
+		elx = @ # Maintains a reference to global class
+		create:(esRes,esErr)-> elx.client.put("/#{name}",settings,esRes,esErr); @
+		remove:(esRes,esErr)-> elx.client.del("/#{name}","",esRes,esErr); @
+		settings:(esRes,esErr)-> elx.client.put("/#{name}/_settings",settings,esRes,esErr); @
+	
+	removeIndex: =>@
 	createMapping: ()->
 	removeMapping: ()->
 	find: ()->
