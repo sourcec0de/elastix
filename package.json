@@ -1,6 +1,6 @@
 {
   "name": "elastix",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A tool for ElasticSearch written in Nodejs",
   "main": "index.js",
   "scripts": {
