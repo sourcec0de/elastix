@@ -1,8 +1,8 @@
 fs = require("fs")
 Elastix = require('../lib/index.js')
-test_config = JSON.parse(fs.readFileSync("./test_config.json","utf8")) 
-elastix = new Elastix(test_config.url)
-# elastix = new Elastix()
+# test_config = JSON.parse(fs.readFileSync("./test_config.json","utf8")) 
+# elastix = new Elastix(test_config.url)
+elastix = new Elastix()
 log = console.log
 colors = require('colors')
 logjson = (j)->
