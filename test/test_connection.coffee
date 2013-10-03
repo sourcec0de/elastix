@@ -1,6 +1,8 @@
+fs = require("fs")
 Elastix = require('../lib/index.js')
-# elastix = new Elastix("http://boxwood-9174332.us-east-1.bonsai.io:80")
-elastix = new Elastix()
+test_config = JSON.parse(fs.readFileSync("./test_config.json","utf8")) 
+elastix = new Elastix(test_config.url)
+# elastix = new Elastix()
 log = console.log
 colors = require('colors')
 logjson = (j)->

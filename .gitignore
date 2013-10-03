@@ -35,3 +35,5 @@ Icon
 .*
 !.gitignore
 *~
+
+test_config.json
