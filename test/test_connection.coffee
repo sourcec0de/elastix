@@ -1,33 +1,44 @@
 fs = require("fs")
-Elastix = require('../lib/index.js')
-# test_config = JSON.parse(fs.readFileSync("./test_config.json","utf8")) 
-# elastix = new Elastix(test_config.url)
-elastix = new Elastix()
 log = console.log
 colors = require('colors')
-logjson = (j)->
+logjson = (j,color="green")->
   j = JSON.parse(j) if(typeof j is "string")
   j = JSON.stringify(j,null,2)
-  log j
+  log j[color]
+Elastix = require('../lib/index.js')
+elx = new Elastix()
+# test_config = JSON.parse(fs.readFileSync("./test_config.json","utf8")) 
+# elx = new Elastix(test_config.url)
 
-# elastix.insert({
-#   "_id":1,
-#   "_index":"w00t",
-#   "_type":"chocolate_chip",
-#   "_source":{
-#     "new":1,
-#     "something":2
-#   }
-# },(err,data)->
-#   # return console.error(err) if err
-#   logjson(data)
-# )
+location = {
+  _index:"nixProductionV10",
+  _type:"test"
+}
 
-elastix.find({
-  "_id":2,
-  "_index":"w00t",
-  "_type":"chocolate_chip"
+
+# indexes a document into the given location
+elx.document(location)
+.index({
+  # Set your own ID
+  # _id:"51c3c1ed97c3e6d8d3b49b5a",
+  # params to pass to ES
+  # params:{
+  #   # check version before saving
+  #   version:6
+  # },
+  # Set the document to be indexed
+  _source:{
+    something:1,
+    new:2
+  }
 },(err,data)->
-  return console.error(err.toString().red) if err
+  log(err.message.red) if err
+  logjson(data)
+)
+
+# Returns a document by its id
+elx.document(location)
+.get("51c3c1ed97c3e6d8d3b49b5a",(err,data)->
+  return log(err,"red") if err
   logjson(data)
 )

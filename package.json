@@ -1,7 +1,7 @@
 {
   "name": "elastix",
-  "version": "0.0.4",
-  "description": "A tool for ElasticSearch written in Nodejs",
+  "version": "0.0.5",
+  "description": "A Fully Featured ElasticSearch Client with EJS integration.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,10 +21,11 @@
     "cli",
     "client",
     "elasticsearch",
-    "client"
+    "client",
+    "elastix"
   ],
   "author": "James R. Qualls",
-  "license": "BSD",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sourcec0de/elastix/issues"
   },
