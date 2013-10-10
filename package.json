@@ -1,6 +1,6 @@
 {
   "name": "elastix",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A Fully Featured ElasticSearch Client with EJS integration.",
   "main": "index.js",
   "scripts": {

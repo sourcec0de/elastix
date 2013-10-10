@@ -5,7 +5,7 @@ logjson = (j,color="green")->
   j = JSON.parse(j) if(typeof j is "string")
   j = JSON.stringify(j,null,2)
   log j[color]
-Elastix = require('../lib/index.js')
+Elastix = require('../index.js')
 elx = new Elastix()
 # test_config = JSON.parse(fs.readFileSync("./test_config.json","utf8")) 
 # elx = new Elastix(test_config.url)
