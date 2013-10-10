@@ -3,21 +3,23 @@ A Fully Featured ElasticSearch Client with EJS integration.
 
 # NOT PRODUCTION READY
 
-Currently Working Methods:
+Stable Methods:
 
 - document.index
 - document.get
+- document.update
+- document.delete
+- parseJSON
 - req
 
 ToDo:
+
 - [ ] indicies.create
 - [ ] indicies.destroy
 - [ ] indicies.settings
 - [ ] indicies.mapping.create
 - [ ] indicies.mapping.update
 
-- [ ] document.update
-- [ ] document.delete
 - [ ] document.multiGet
 - [ ] document.bulk
 - [ ] search
